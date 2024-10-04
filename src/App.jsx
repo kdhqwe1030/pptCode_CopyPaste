@@ -1,4 +1,3 @@
-import './App.css';
 import ConvertButton from './components/ConvertButton';
 import TextField from './components/TextField';
 import styled from 'styled-components';
@@ -35,14 +34,12 @@ function App() {
           value={input}
           onChange={onChangeInput}
         ></TextField>
+        <ButtonWrapper>
+          <ConvertButton onClick={onClickConvert}></ConvertButton>
+          <CopyButton onClick={onClickCopy}></CopyButton>
+        </ButtonWrapper>
         <TextField text="🤖 변환 결과" value={result}></TextField>
       </BaseContainer>
-      <FixedContainer>
-        <ConvertButton onClick={onClickConvert}></ConvertButton>
-      </FixedContainer>
-      <CopyContainer>
-        <CopyButton onClick={onClickCopy}></CopyButton>
-      </CopyContainer>
     </AllowedContainer>
   );
 }
@@ -60,15 +57,8 @@ const BaseContainer = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
-const FixedContainer = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-const CopyContainer = styled.div`
-  position: fixed;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `;
