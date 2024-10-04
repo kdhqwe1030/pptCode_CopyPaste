@@ -3,6 +3,7 @@ import TextField from './components/TextField';
 import styled from 'styled-components';
 import { useState } from 'react';
 import CopyButton from './components/CopyButton';
+import HelpButton from './components/HelpButton';
 function App() {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
@@ -27,31 +28,43 @@ function App() {
     handleCopyClipBoard(result);
   };
   return (
-    <AllowedContainer>
-      <BaseContainer>
-        <TextField
-          text="📝 코드를 입력 하세요"
-          value={input}
-          onChange={onChangeInput}
-        ></TextField>
-        <ButtonWrapper>
-          <ConvertButton onClick={onClickConvert}></ConvertButton>
-          <CopyButton onClick={onClickCopy}></CopyButton>
-        </ButtonWrapper>
-        <TextField text="🤖 변환 결과" value={result}></TextField>
-      </BaseContainer>
-    </AllowedContainer>
+    <>
+      <AllowedContainer>
+        <TopContainer>
+          <HelpButton />
+        </TopContainer>
+        <BaseContainer>
+          <TextField
+            text="📝 코드를 입력 하세요"
+            value={input}
+            onChange={onChangeInput}
+          ></TextField>
+          <ButtonWrapper>
+            <ConvertButton onClick={onClickConvert}></ConvertButton>
+            <CopyButton onClick={onClickCopy}></CopyButton>
+          </ButtonWrapper>
+          <TextField text="🤖 변환 결과" value={result}></TextField>
+        </BaseContainer>
+      </AllowedContainer>
+    </>
   );
 }
 
 export default App;
 
 const AllowedContainer = styled.div`
-  padding: 50px;
   height: 100vh;
+  padding: 20px;
+`;
+const TopContainer = styled.div`
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: end;
 `;
 const BaseContainer = styled.div`
   display: flex;
+  padding: 20px;
   width: 100%;
   height: 100%;
   align-items: center;
