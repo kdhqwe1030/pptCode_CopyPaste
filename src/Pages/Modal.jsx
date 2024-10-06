@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import closeIconUrl from '../assets/close.svg';
+import Info from '../components/Info';
+import HelpInfo from '../components/HelpInfo';
 const Modal = ({ isOpen, modalClose }) => {
   const [isSelected, setIsSelected] = useState(1);
 
@@ -37,6 +39,7 @@ const Modal = ({ isOpen, modalClose }) => {
                 style={{ cursor: 'pointer' }}
               />
             </TopHeader>
+            <Content>{isSelected ? <Info /> : <HelpInfo />}</Content>
           </BaseContainer>
         </>
       )}
@@ -65,11 +68,13 @@ const BaseContainer = styled.div`
   background-color: white;
   z-index: 2;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TopHeader = styled.div`
   width: 100%;
-  height: 30px;
+  height: 50px;
   display: flex;
   justify-content: space-evenly;
 `;
@@ -94,11 +99,15 @@ const ChooseContainer = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: ${({ $isSelected }) =>
-      $isSelected ? 'black' : 'transparent'};
-    transition: background-color 0.3s ease;
+      $isSelected ? '#52b7fa' : 'transparent'};
+    transition: background-color 0.5s ease;
   }
 `;
 
+const Content = styled.div`
+  flex-grow: 1;
+  overflow-y: auto;
+`;
 export default Modal;

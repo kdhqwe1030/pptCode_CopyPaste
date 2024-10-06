@@ -14,7 +14,7 @@ function Home() {
     setInput(e.target.value);
   };
   const onClickConvert = () => {
-    const firstProcess = input.replace(/[“”]/g, '"');
+    const firstProcess = input.replace(/[“”❛❜]/g, '"');
     const secondProcess = firstProcess.replace(/^\d{2}/gm, '');
     const thirdProcess = secondProcess.replace(/^ /gm, '');
     setResult(thirdProcess);
