@@ -1,22 +1,42 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import closeIconUrl from '../assets/close.svg';
 const Modal = ({ isOpen, modalClose }) => {
+  const [isSelected, setIsSelected] = useState(1);
+
   return (
     <>
       {isOpen && (
         <>
           <BlurContainer onClick={modalClose} />
           <BaseContainer>
-            <CloseContainer>
+            <TopHeader>
+              <ChooseWrapper>
+                <ChooseContainer
+                  onClick={() => {
+                    setIsSelected(true);
+                  }}
+                  $isSelected={isSelected}
+                >
+                  <h3>소개</h3>
+                </ChooseContainer>
+                <ChooseContainer
+                  onClick={() => {
+                    setIsSelected(false);
+                  }}
+                  $isSelected={!isSelected}
+                >
+                  <h3>도움말</h3>
+                </ChooseContainer>
+              </ChooseWrapper>
               <img
                 src={closeIconUrl}
                 alt="Close Icon"
                 width="18px"
                 onClick={modalClose}
+                style={{ cursor: 'pointer' }}
               />
-            </CloseContainer>
-            <h1>모달창</h1>
+            </TopHeader>
           </BaseContainer>
         </>
       )}
@@ -44,15 +64,41 @@ const BaseContainer = styled.div`
   border-radius: 20px;
   background-color: white;
   z-index: 2;
-
   padding: 10px 20px;
 `;
 
-const CloseContainer = styled.div`
+const TopHeader = styled.div`
   width: 100%;
   height: 30px;
   display: flex;
-  justify-content: end;
+  justify-content: space-evenly;
+`;
+
+const ChooseWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 30px;
+`;
+const ChooseContainer = styled.div`
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${({ $isSelected }) =>
+      $isSelected ? 'black' : 'transparent'};
+    transition: background-color 0.3s ease;
+  }
 `;
 
 export default Modal;

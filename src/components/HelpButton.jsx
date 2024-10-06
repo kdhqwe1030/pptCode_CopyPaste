@@ -26,7 +26,7 @@ const Container = styled.div`
   align-items: center;
   padding-left: 10px;
   position: relative;
-
+  cursor: pointer;
   &:hover {
     margin-top: 10px;
     margin-bottom: 5px;

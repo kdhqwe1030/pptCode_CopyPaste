@@ -16,7 +16,7 @@ const Button = styled.button`
   font-size: 16px;
   font-weight: 500;
   font-family: pretendard;
-
+  cursor: pointer;
   &:hover {
     background: #339af0;
     width: 120px;
