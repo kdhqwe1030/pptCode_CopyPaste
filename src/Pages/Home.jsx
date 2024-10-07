@@ -13,12 +13,31 @@ function Home() {
   const onChangeInput = (e) => {
     setInput(e.target.value);
   };
+
   const onClickConvert = () => {
-    const firstProcess = input.replace(/[“”❛❜]/g, '"');
-    const secondProcess = firstProcess.replace(/^\d{2}/gm, '');
-    const thirdProcess = secondProcess.replace(/^ /gm, '');
-    setResult(thirdProcess);
+    const formatCode = input
+      .replace(/[“”❛❜]/g, '"') // 코드 번호 제거
+      .replace(/^\d{2}/gm, '') // 코드 번호 제거
+      .replace(/^ /gm, ''); // 각 줄의 앞 공백 제거
+
+    let indentLevel = 0;
+    const indentSize = 4; // 탭 크기
+
+    let formattedCode = formatCode
+      .split('\n') // 코드를 줄 단위로 처리
+      .map((line) => {
+        line = line.trim(); // 각 줄의 앞뒤 공백을 제거
+        if (line.startsWith('}')) indentLevel--; // 닫는 중괄호가 있는 경우 들여쓰기 레벨을 먼저 감소
+
+        const indentedLine = ' '.repeat(indentLevel * indentSize) + line;
+        if (line.endsWith('{')) indentLevel++; // 여는 중괄호가 있는 경우 들여쓰기 레벨을 증가
+        return indentedLine;
+      })
+      .join('\n'); // 다시 줄을 합쳐서 반환
+
+    setResult(formattedCode);
   };
+
   const onClickCopy = () => {
     handleCopyClipBoard(result);
   };
