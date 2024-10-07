@@ -31,7 +31,7 @@ const TextareaStyled = styled(TextareaAutosize)`
 
   &:focus {
     border: 5px solid #87a2ff;
-    width: 480px;
+    width: 410px;
   }
-  transition: all 1.5s ease;
+  transition: all 1s ease;
 `;

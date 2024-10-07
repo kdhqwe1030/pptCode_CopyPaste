@@ -7,10 +7,10 @@ const HelpInfo = () => {
   return (
     <HelpInfoContainer>
       <h3>❗주의사항❗: PDF 뷰어로 Chrome로 사용하셔야 원활합니다.</h3>
-      <h2>1. 코드를 복사하세요</h2>
+      <h2>1. 코드를 복사하세요.</h2>
       <p>
         강의자료, 웹페이지, 또는 기타 소스에서 코드를 복사하여 &quot;📝 코드를
-        입력 하세요&quot; 칸에 넣어주세요
+        입력 하세요&quot; 칸에 넣어주세요.
       </p>
       <img src={fImage} alt="image" width="70%" />
       <br />

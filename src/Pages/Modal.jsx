@@ -74,7 +74,8 @@ const BaseContainer = styled.div`
 
 const TopHeader = styled.div`
   width: 100%;
-  height: 50px;
+  height: 60px;
+  background-color: white;
   display: flex;
   justify-content: space-evenly;
 `;
@@ -83,7 +84,8 @@ const ChooseWrapper = styled.div`
   display: flex;
   gap: 10px;
   width: 100%;
-  height: 30px;
+  height: 50px;
+  background-color: white;
 `;
 const ChooseContainer = styled.div`
   width: 80px;
