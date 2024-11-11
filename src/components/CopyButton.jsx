@@ -19,12 +19,11 @@ const Button = styled.button`
   cursor: pointer;
   &:hover {
     background: #4f75ff;
-    width: 110px;
-    height: 40px;
+    transform: scale(1.15);
   }
   &:active {
     background: #00ccdd;
     transition: none;
   }
-  transition: all ease 0.5s;
+  transition: all ease 0.3s;
 `;

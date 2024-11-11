@@ -13,7 +13,9 @@ function Home() {
   const onChangeInput = (e) => {
     setInput(e.target.value);
   };
-
+  const onChangeOutput = (e) => {
+    setResult(e.target.value);
+  };
   const onClickConvert = () => {
     const formatCode = input
       .replace(/[“”❛❜]/g, '"') // 코드 번호 제거
@@ -75,7 +77,11 @@ function Home() {
             <ConvertButton onClick={onClickConvert}></ConvertButton>
             <CopyButton onClick={onClickCopy}></CopyButton>
           </ButtonWrapper>
-          <TextField text="🤖 변환 결과" value={result}></TextField>
+          <TextField
+            text="🤖 변환 결과"
+            value={result}
+            onChange={onChangeOutput}
+          ></TextField>
         </BaseContainer>
       </AllowedContainer>
       <Modal isOpen={isOpen} modalClose={modalClose} />
@@ -96,16 +102,26 @@ const TopContainer = styled.div`
   justify-content: end;
 `;
 const BaseContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
   width: 100%;
   height: 100%;
   align-items: center;
-  justify-content: space-around;
+  justify-items: center;
+  @media (max-width: 1200px) {
+    grid-template-columns: 3fr;
+  }
 `;
 const ButtonWrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 150px auto;
   flex-direction: column;
-  gap: 40px;
   align-items: center;
+  justify-item: center;
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 150px auto;
+  }
 `;
