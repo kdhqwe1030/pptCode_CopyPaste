@@ -21,7 +21,7 @@ const HelpInfo = () => {
       <p>변환 버튼을 클릭하여 코드를 변환해주세요.</p>
       <img src={sImage} alt="image" width="70%" />
       <br />
-      <br />
+      <br />  
       <hr />
       <br />
       <h2>3. 코드를 사용하세요!</h2>
