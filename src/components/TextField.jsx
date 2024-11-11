@@ -29,6 +29,12 @@ const TextareaStyled = styled(TextareaAutosize)`
   color: #33333;
   overflow: hidden;
 
+  @media (min-width: 1500px) {
+    width: 65vh;
+  }
+  @media (max-width: 1200px) {
+    width: 65vh;
+  }
   &:focus {
     border: 5px solid #87a2ff;
     transform: scale(1.05);
