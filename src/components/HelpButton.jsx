@@ -54,7 +54,7 @@ const Info = styled.div`
   gap: 10px;
   border-radius: 15px;
 
-  animation: fadeInOut 12s infinite ease-in-out;
+  animation: fadeInOut 8s infinite ease-in-out;
   opacity: 0;
   pointer-events: none;
 
