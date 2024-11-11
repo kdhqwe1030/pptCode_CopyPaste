@@ -13,7 +13,9 @@ function Home() {
   const onChangeInput = (e) => {
     setInput(e.target.value);
   };
-
+  const onChangeOutput = (e) => {
+    setResult(e.target.value);
+  };
   const onClickConvert = () => {
     const formatCode = input
       .replace(/[“”❛❜]/g, '"') // 코드 번호 제거
@@ -75,7 +77,11 @@ function Home() {
             <ConvertButton onClick={onClickConvert}></ConvertButton>
             <CopyButton onClick={onClickCopy}></CopyButton>
           </ButtonWrapper>
-          <TextField text="🤖 변환 결과" value={result}></TextField>
+          <TextField
+            text="🤖 변환 결과"
+            value={result}
+            onChange={onChangeOutput}
+          ></TextField>
         </BaseContainer>
       </AllowedContainer>
       <Modal isOpen={isOpen} modalClose={modalClose} />
