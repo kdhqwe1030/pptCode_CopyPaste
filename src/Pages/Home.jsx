@@ -110,18 +110,15 @@ const BaseContainer = styled.div`
   align-items: center;
   justify-items: center;
   @media (max-width: 1200px) {
-    grid-template-columns: 3fr;
+    grid-template-columns: 1fr;
   }
 `;
 const ButtonWrapper = styled.div`
   display: grid;
-  grid-template-columns: 2fr;
   grid-template-rows: 150px auto;
-  flex-direction: column;
   align-items: center;
   justify-item: center;
   @media (max-width: 1200px) {
-    grid-template-columns: 1fr 1fr;
     grid-template-columns: 150px auto;
   }
 `;
